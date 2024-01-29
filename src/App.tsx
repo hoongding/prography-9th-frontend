@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from '@styles/theme';
 import GlobalStyles from '@styles/GlobalStyles.style';
+import Categories from '@components/Categories';
 
 const queryClient = new QueryClient();
 
@@ -12,9 +13,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <QueryClientProvider client={queryClient}>
-        <div>
-          <h2>Let's get started!</h2>
-        </div>
+        <Categories />
       </QueryClientProvider>
     </ThemeProvider>
   );
