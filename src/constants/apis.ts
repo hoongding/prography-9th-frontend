@@ -1,4 +1,4 @@
-const BASE_API_URL = `${process.env.CONF_SERVER_URL}`;
+const BASE_API_URL = `${process.env.REACT_APP_SERVER_URL}`;
 
 const apis = {
   categories: `${BASE_API_URL}/categories.php`,

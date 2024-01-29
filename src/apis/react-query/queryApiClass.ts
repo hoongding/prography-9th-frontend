@@ -1,7 +1,7 @@
-import axios from 'axios';
+import { http } from '@apis/axios/axios-config';
 
 const axiosGetForQuery = async (url: string, params?: object) => {
-  const { data } = await axios.get(url, { params: { ...params } });
+  const { data } = await http.get(url, { params: { ...params } });
 
   console.log('%cQUERY KEY', 'color: blue', [url, params]);
   console.log('%cQUERY DATA', 'color: blue', data);
@@ -18,7 +18,7 @@ class QueryApi {
   getQueryKey(searchParams = ''): string[] {
     const api = this.api;
 
-    return [api, searchParams];
+    return !searchParams ? [api] : [api, searchParams];
   }
 
   getQueryFn() {
