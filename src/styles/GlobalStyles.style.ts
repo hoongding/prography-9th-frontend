@@ -115,7 +115,7 @@ const GlobalStyles = createGlobalStyle`
     font: inherit;
     letter-spacing: -0.4px;
     font-size: 1.6rem;
-    background-color: #1F2C52;
+    background-color: #f5f5f5;
   }
 
   #root {
