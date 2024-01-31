@@ -9,22 +9,22 @@ const axiosGetForQuery = async (url: string, params?: object) => {
 };
 
 class QueryApi {
-  api: string;
+  api: () => string;
 
-  constructor(api: string) {
+  constructor(api: () => string) {
     this.api = api;
   }
 
-  getQueryKey(searchParams = ''): string[] {
+  getQueryKey(searchParams = {}) {
     const api = this.api;
 
-    return !searchParams ? [api] : [api, searchParams];
+    return !searchParams ? [api()] : [api(), searchParams];
   }
 
-  getQueryFn() {
+  getQueryFn(searchParams = {}) {
     const api = this.api;
 
-    return (params = {}) => axiosGetForQuery(api, params);
+    return !Object.keys(searchParams) ? () => axiosGetForQuery(api()) : () => axiosGetForQuery(api(), searchParams);
   }
 }
 
