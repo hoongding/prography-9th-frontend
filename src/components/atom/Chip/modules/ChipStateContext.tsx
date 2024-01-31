@@ -2,7 +2,7 @@ import React, { createContext, useContext } from 'react';
 
 interface ChipContextType {
   onClick: () => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   isSelected: boolean;
 }
 
