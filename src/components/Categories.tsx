@@ -2,6 +2,7 @@ import { useAllCategories } from '@apis/categories/queries';
 import React, { useState } from 'react';
 import { Chip } from './atom/Chip';
 import { ICategory } from '@apis/categories/types';
+import styled from 'styled-components';
 
 const Categories = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -17,7 +18,7 @@ const Categories = () => {
   return categoriesLoading ? (
     <div />
   ) : (
-    <>
+    <CategoriesContainer>
       {data?.categories.map((category: ICategory) => {
         return (
           <Chip
@@ -30,8 +31,15 @@ const Categories = () => {
           </Chip>
         );
       })}
-    </>
+    </CategoriesContainer>
   );
 };
+
+const CategoriesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-direction: row;
+`;
 
 export default Categories;
