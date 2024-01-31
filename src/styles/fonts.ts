@@ -1,65 +1,110 @@
 import { css } from 'styled-components';
 
 const FONT_TOKEN = {
-  LARGE_TEMP: css`
-    font-weight: 400;
-    font-size: 90px;
-    line-height: 41px;
+  'Hero1-60Bd': css`
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 84px;
   `,
-  LARGE_TITLE: css`
-    font-weight: 400;
-    font-size: 34px;
-    line-height: 41px;
+  'Hero2-48Bd': css`
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 67px;
   `,
-  TITLE_1: css`
-    font-weight: 400;
+  'Hero3-36Bd': css`
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 50px;
+  `,
+  'Hero4-32Bd': css`
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 45px;
+  `,
+  'Headline1-28Bd': css`
     font-size: 28px;
+    font-weight: 700;
+    line-height: 39px;
+  `,
+  'Headline2-24Bd': css`
+    font-size: 24px;
+    font-weight: 700;
     line-height: 34px;
   `,
-  TITLE_2: css`
-    font-weight: 400;
+  'Headline2-24Md': css`
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+  `,
+  'Headline3-22Bd': css`
     font-size: 22px;
+    font-weight: 700;
+    line-height: 31px;
+  `,
+  'Headline3-22Md': css`
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 31px;
+  `,
+  'Title1-20Bd': css`
+    font-size: 20px;
+    font-weight: 700;
     line-height: 28px;
   `,
-  TITLE_3: css`
-    font-weight: 400;
+  'Title1-20Md': css`
     font-size: 20px;
-    line-height: 25px;
+    font-weight: 500;
+    line-height: 28px;
   `,
-  HEADLINE: css`
-    font-weight: 590;
-    font-size: 17px;
+  'Title2-18Bd': css`
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 29px;
+  `,
+  'Title2-18Md': css`
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 29px;
+  `,
+  'Body1-16Bd': css`
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 26px;
+  `,
+  'Body1-16Md': css`
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+  `,
+  'Body2-14Bd': css`
+    font-size: 14px;
+    font-weight: 700;
     line-height: 22px;
   `,
-  BODY: css`
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 24px;
+  'Body2-14Md': css`
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
   `,
-  CALLOUT: css`
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-  `,
-  SUBHEAD: css`
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
-  `,
-  FOOTNOTE: css`
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 18px;
-  `,
-  CAPTION_1: css`
-    font-weight: 400;
+  'Caption-12Bd': css`
     font-size: 12px;
+    font-weight: 700;
+    line-height: 19px;
+  `,
+  'Caption-12Md': css`
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 19px;
+  `,
+  'Overline-10Bd': css`
+    font-size: 10px;
+    font-weight: 700;
     line-height: 16px;
   `,
-  CAPTION_2: css`
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 13px;
+  'Overline-10Md': css`
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 16px;
   `,
 };
 
