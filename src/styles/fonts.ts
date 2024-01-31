@@ -1,64 +1,66 @@
+import { css } from 'styled-components';
+
 const FONT_TOKEN = {
-  LARGE_TEMP: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '90px',
-    LINE_HEIGHT: '41px',
-  },
-  LARGE_TITLE: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '34px',
-    LINE_HEIGHT: '41px',
-  },
-  TITLE_1: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '28px',
-    LINE_HEIGHT: '34px',
-  },
-  TITLE_2: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '22px',
-    LINE_HEIGHT: '28px',
-  },
-  TITLE_3: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '20px',
-    LINE_HEIGHT: '25px',
-  },
-  HEADLINE: {
-    FONT_WEIGHT: '590',
-    FONT_SIZE: '17px',
-    LINE_HEIGHT: '22px',
-  },
-  BODY: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '17px',
-    LINE_HEIGHT: '24px',
-  },
-  CALLOUT: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '16px',
-    LINE_HEIGHT: '21px',
-  },
-  SUBHEAD: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '15px',
-    LINE_HEIGHT: '20px',
-  },
-  FOOTNOTE: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '13px',
-    LINE_HEIGHT: '18px',
-  },
-  CAPTION_1: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '12px',
-    LINE_HEIGHT: '16px',
-  },
-  CAPTION_2: {
-    FONT_WEIGHT: '400',
-    FONT_SIZE: '11px',
-    LINE_HEIGHT: '13px',
-  },
+  LARGE_TEMP: css`
+    font-weight: '400';
+    font-size: '90px';
+    line-height: '41px';
+  `,
+  LARGE_TITLE: css`
+    font-weight: '400';
+    font-size: '34px';
+    line-height: '41px';
+  `,
+  TITLE_1: css`
+    font-weight: '400';
+    font-size: '28px';
+    line-height: '34px';
+  `,
+  TITLE_2: css`
+    font-weight: '400';
+    font-size: '22px';
+    line-height: '28px';
+  `,
+  TITLE_3: css`
+    font-weight: '400';
+    font-size: '20px';
+    line-height: '25px';
+  `,
+  HEADLINE: css`
+    font-weight: '590';
+    font-size: '17px';
+    line-height: '22px';
+  `,
+  BODY: css`
+    font-weight: '400';
+    font-size: '17px';
+    line-height: '24px';
+  `,
+  CALLOUT: css`
+    font-weight: '400';
+    font-size: '16px';
+    line-height: '21px';
+  `,
+  SUBHEAD: css`
+    font-weight: '400';
+    font-size: '15px';
+    line-height: '20px';
+  `,
+  FOOTNOTE: css`
+    font-weight: '400';
+    font-size: '13px';
+    line-height: '18px';
+  `,
+  CAPTION_1: css`
+    font-weight: '400';
+    font-size: '12px';
+    line-height: '16px';
+  `,
+  CAPTION_2: css`
+    font-weight: '400';
+    font-size: '11px';
+    line-height: '13px';
+  `,
 };
 
 export { FONT_TOKEN };
