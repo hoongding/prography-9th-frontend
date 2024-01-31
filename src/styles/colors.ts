@@ -124,6 +124,10 @@ const COLORS = {
   darkLayeredBackground: inverseGrey50,
   floatBackground: white,
   darkFloatBackground: inverseGrey100,
+  prographyRed: '#FA2454',
+  prographyBlue: '#1033FF',
+  prographyOrange: '#FF6929',
+  prographyYellow: '#FFB904',
 };
 
 export default COLORS;
