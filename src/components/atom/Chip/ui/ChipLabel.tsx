@@ -19,7 +19,7 @@ const ChipLabel = ({ children, customTextColor }: IChipLabel) => {
 };
 
 const Label = styled.span<{ customTextColor?: string; isSelected: boolean }>`
-  ${({ isSelected }) => (!isSelected ? FONT_TOKEN['Body1-16Md'] : FONT_TOKEN['Body1-16Bd'])};
+  ${({ isSelected }) => (!isSelected ? FONT_TOKEN['Body1-16Md'] : FONT_TOKEN['Body1-16Md'])};
 
   color: ${({ customTextColor, theme, isSelected }) =>
     customTextColor ? customTextColor : isSelected ? theme.COLORS.prographyRed : theme.COLORS.black};
