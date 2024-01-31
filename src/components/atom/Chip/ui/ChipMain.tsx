@@ -24,7 +24,7 @@ const ChipButton = styled.button<{ isSelected: boolean }>`
   justify-content: center;
   gap: 4px;
 
-  border: 1px solid ${({ theme, isSelected }) => (isSelected ? theme.COLORS.prographyRed : theme.COLORS.grey200)};
+  border: 1px solid ${({ theme, isSelected }) => (isSelected ? theme.COLORS.prographyRed : theme.COLORS.grey500)};
   border-radius: 8px;
   padding: 8px 10px;
 `;

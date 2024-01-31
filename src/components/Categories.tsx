@@ -9,7 +9,9 @@ const Categories = () => {
   const { data, isLoading: categoriesLoading } = useAllCategories();
 
   const handleSelectedCategory = (idCategory: string) => {
-    setSelectedCategories(prev => [...prev, idCategory]);
+    setSelectedCategories(prev =>
+      !prev.includes(idCategory) ? [...prev, idCategory] : prev.filter(categoryId => categoryId !== idCategory)
+    );
   };
 
   return categoriesLoading ? (
