@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { IMeals } from './types';
 import { AxiosError } from 'axios';
 
-const meals = new QueryApi(apis.foods);
+const meals = new QueryApi(apis.meals);
 
 interface IMealsSearchParams {
   c: string;
