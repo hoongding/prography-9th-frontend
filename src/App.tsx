@@ -28,7 +28,7 @@ const App = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
   justify-content: center;
   padding: 0px 20px;
 `;

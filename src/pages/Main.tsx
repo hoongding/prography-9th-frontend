@@ -2,6 +2,7 @@ import { useMeals } from '@apis/meals/queries';
 import { IMeal, IMeals } from '@apis/meals/types';
 import Categories from '@components/Categories';
 import Header from '@components/Header';
+import Meals from '@components/Meals';
 import { FILTER_ACTION_TYPES, useFilterDispatchContext, useFilterStateContext } from '@context/filterContext';
 import React, { useState } from 'react';
 
@@ -24,7 +25,7 @@ const Main = () => {
     <>
       <Header />
       <Categories selectedCategories={selectedCategories} handleSelectedCategory={handleSelectedCategory} />
-      <div>{filterState.meals.length}</div>
+      <Meals />
     </>
   );
 };
