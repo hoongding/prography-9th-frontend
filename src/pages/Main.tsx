@@ -1,5 +1,5 @@
 import { useMeals } from '@apis/meals/queries';
-import { IMeals } from '@apis/meals/types';
+import { IMeal, IMeals } from '@apis/meals/types';
 import Categories from '@components/Categories';
 import Header from '@components/Header';
 import { FILTER_ACTION_TYPES, useFilterDispatchContext, useFilterStateContext } from '@context/filterContext';
@@ -10,10 +10,8 @@ const Main = () => {
   const { filterState, isFilterChanged } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
 
-  const { isLoading: mealsLoading } = useMeals(selectedCategories, {
-    onSuccess: (data: IMeals) => {
-      filterDispatch({ type: FILTER_ACTION_TYPES.ADD_MEALS, payload: data.meals });
-    },
+  useMeals(selectedCategories, (data: IMeal[]) => {
+    filterDispatch({ type: FILTER_ACTION_TYPES.ADD_MEALS, payload: data });
   });
 
   const handleSelectedCategory = (strCategory: string) => {
@@ -26,6 +24,7 @@ const Main = () => {
     <>
       <Header />
       <Categories selectedCategories={selectedCategories} handleSelectedCategory={handleSelectedCategory} />
+      <div>{filterState.meals.length}</div>
     </>
   );
 };

@@ -59,10 +59,7 @@ const filterReducer = (
     case FILTER_ACTION_TYPES.ADD_MEALS:
       return {
         ...state,
-        meals: state.meals.concat(action.payload as IMeal[]).filter((meal, index, self) => {
-          if (meal === null) return false;
-          return self.findIndex(m => m.idMeal === meal.idMeal) === index;
-        }),
+        meals: action.payload as IMeal[],
       };
 
     case FILTER_ACTION_TYPES.SET_FILTER_NEW:
