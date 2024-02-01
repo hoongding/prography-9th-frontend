@@ -1,8 +1,10 @@
-import QueryApi from '@apis/react-query/queryApiClass';
-import apis from '@constants/apis';
 import { useQuery } from '@tanstack/react-query';
-import { IMeals } from './types';
 import { AxiosError } from 'axios';
+
+import QueryApi from '@apis/react-query/queryApiClass';
+
+import apis from '@constants/apis';
+import { IMeals } from './types';
 
 const meals = new QueryApi(apis.meals);
 

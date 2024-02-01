@@ -42,7 +42,7 @@ const initialState = {
 };
 
 export const FILTER_ACTION_TYPES = {
-  SET_MEALS: 'SET_MEALS',
+  ADD_MEALS: 'ADD_MEALS',
   SET_FILTER_NEW: 'SET_FILTER_NEW',
   SET_FILTER_ASC: 'SET_FILTER_ASC',
   SET_FILTER_DESC: 'SET_FILTER_DESC',
@@ -52,14 +52,17 @@ const filterReducer = (
   state: IFilterState,
   action: {
     type: (typeof FILTER_ACTION_TYPES)[keyof typeof FILTER_ACTION_TYPES];
-    payload?: any;
+    payload?: string | IMeal[];
   }
 ): IFilterState => {
   switch (action.type) {
-    case FILTER_ACTION_TYPES.SET_MEALS:
+    case FILTER_ACTION_TYPES.ADD_MEALS:
       return {
         ...state,
-        meals: action.payload,
+        meals: state.meals.concat(action.payload as IMeal[]).filter((meal, index, self) => {
+          if (meal === null) return false;
+          return self.findIndex(m => m.idMeal === meal.idMeal) === index;
+        }),
       };
 
     case FILTER_ACTION_TYPES.SET_FILTER_NEW:

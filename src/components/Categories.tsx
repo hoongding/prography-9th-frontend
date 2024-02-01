@@ -4,16 +4,13 @@ import { Chip } from './atom/Chip';
 import { ICategory } from '@apis/categories/types';
 import styled from 'styled-components';
 
-const Categories = () => {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+interface ICategories {
+  selectedCategories: string[];
+  handleSelectedCategory: (strCategory: string) => void;
+}
 
+const Categories = ({ selectedCategories, handleSelectedCategory }: ICategories) => {
   const { data, isLoading: categoriesLoading } = useAllCategories();
-
-  const handleSelectedCategory = (idCategory: string) => {
-    setSelectedCategories(prev =>
-      !prev.includes(idCategory) ? [...prev, idCategory] : prev.filter(categoryId => categoryId !== idCategory)
-    );
-  };
 
   return categoriesLoading ? (
     <div />
@@ -23,8 +20,8 @@ const Categories = () => {
         return (
           <Chip
             key={category.idCategory}
-            onClick={() => handleSelectedCategory(category.idCategory)}
-            isSelected={selectedCategories.some(categoryId => categoryId === category.idCategory)}
+            onClick={() => handleSelectedCategory(category.strCategory)}
+            isSelected={selectedCategories.some(categoryName => categoryName === category.strCategory)}
           >
             <Chip.Label>{category.strCategory}</Chip.Label>
             <Chip.Icon />
