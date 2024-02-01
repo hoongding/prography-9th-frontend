@@ -1,7 +1,7 @@
 import { http } from '@apis/axios/axios-config';
 
 const axiosGetForQuery = async (url: string, params?: object) => {
-  const { data } = await http.get(url, { params: { ...params } });
+  const { data } = await http.get(url, { ...params });
 
   console.log('%cQUERY KEY', 'color: blue', [url, params]);
   console.log('%cQUERY DATA', 'color: blue', data);

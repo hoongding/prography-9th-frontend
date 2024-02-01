@@ -10,11 +10,12 @@ interface IMealsSearchParams {
   c: string;
 }
 
-export const useMeals = (category: string[]) => {
-  const searchParams: IMealsSearchParams = { c: category.join(',') };
+export const useMeals = (category: string[], options = {}) => {
+  const searchParams: IMealsSearchParams = { c: category[category.length - 1] };
 
   return useQuery<IMeals, AxiosError>({
     queryKey: meals.getQueryKey(searchParams),
     queryFn: meals.getQueryFn(searchParams),
+    ...options,
   });
 };
