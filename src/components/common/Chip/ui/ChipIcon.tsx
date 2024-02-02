@@ -1,6 +1,6 @@
 import React from 'react';
 import { useChipState } from '../modules/ChipStateContext';
-import { IconComponents } from '@components/atom/Icon/IconComponents';
+import { IconComponents } from '@components/common/Icon/IconComponents';
 import COLORS from '@styles/colors';
 
 const ChipIcon = () => {

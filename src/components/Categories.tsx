@@ -1,6 +1,6 @@
 import { useAllCategories } from '@apis/categories/queries';
 import React, { useState } from 'react';
-import { Chip } from './atom/Chip';
+import { Chip } from './common/Chip';
 import { ICategory } from '@apis/categories/types';
 import styled from 'styled-components';
 

@@ -1,12 +1,12 @@
 import React, { createContext, useContext } from 'react';
 
-interface ChipContextType {
+interface IChipContext {
   onClick: () => void;
   children?: React.ReactNode;
   isSelected: boolean;
 }
 
-export const ChipContext = createContext<ChipContextType | null>(null);
+export const ChipContext = createContext<IChipContext | null>(null);
 
 export const useChipState = () => {
   const context = useContext(ChipContext);

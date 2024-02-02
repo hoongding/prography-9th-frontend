@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useFilterStateContext } from '@context/filterContext';
-import Image from './atom/Image';
+import Image from './common/Image';
 import { FONT_TOKEN } from '@styles/fonts';
 
 interface IMeals {

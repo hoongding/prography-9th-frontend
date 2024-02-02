@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from './atom/Image';
+import Image from './common/Image';
 
 const Header = () => {
   return (
