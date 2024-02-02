@@ -10,25 +10,34 @@ interface IDropDownMenuItem {
 }
 
 const DropDownMenuItem = ({ value, label, divider }: IDropDownMenuItem) => {
-  const { setSelectedItem, handleOpen } = useDropDownState();
+  const { setSelectedItem, handleOpen, selectedItem } = useDropDownState();
 
   const handleClick = () => {
     setSelectedItem(value);
     handleOpen(false);
   };
 
-  return <MenuItemContainer onClick={handleClick}>{label}</MenuItemContainer>;
+  return (
+    <MenuItemContainer onClick={handleClick} currentValue={selectedItem.value} value={value}>
+      {label}
+    </MenuItemContainer>
+  );
 };
 
-const MenuItemContainer = styled.button`
+const MenuItemContainer = styled.button<{ currentValue: number; value: number }>`
   ${FONT_TOKEN['Body2-14Md']}
   width: 100%;
   padding: 8px;
-  background-color: white;
+  border-radius: 8px;
+  background-color: ${({ currentValue, value, theme }) =>
+    currentValue === value ? theme.COLORS.red50 : theme.COLORS.white};
   text-align: left;
+  color: ${({ currentValue, value, theme }) =>
+    currentValue === value ? theme.COLORS.prographyRed : theme.COLORS.black};
 
   &:hover {
-    background-color: #f5f5f5;
+    background-color: ${({ currentValue, value, theme }) =>
+      currentValue === value ? theme.COLORS.red50 : theme.COLORS.grey100};
   }
 `;
 

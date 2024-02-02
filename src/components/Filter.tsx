@@ -18,9 +18,8 @@ const Filter = ({ mealsCount, viewCount, handleGridNum, gridNum }: IFilter) => {
         <DropDown selectedItem={{ value: gridNum, label: `${gridNum}개씩 보기` }} setSelectedItem={handleGridNum}>
           <DropDown.Button />
           <DropDown.Menus>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
+            <DropDown.MenuItem value={2} label="2개씩 보기" />
+            <DropDown.MenuItem value={4} label="4개씩 보기" />
           </DropDown.Menus>
         </DropDown>
       </div>

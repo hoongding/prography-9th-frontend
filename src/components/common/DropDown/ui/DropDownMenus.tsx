@@ -25,6 +25,7 @@ const MenuContainer = styled.div<{ open: boolean }>`
   border-radius: 8px;
   padding: 8px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  gap: 2px;
 `;
 
 export default DropDownMenus;
