@@ -2,12 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { useDropDownState } from '../module/DropDownStateContext';
 
+import { IconComponents } from '@components/common/Icon/IconComponents';
+
 const DropDownButton = () => {
   const { open, handleOpen, selectedItem } = useDropDownState();
 
   return (
     <MainButton open={open} onClick={handleOpen}>
       {selectedItem}
+      {open ? <IconComponents.down /> : <IconComponents.up />}
     </MainButton>
   );
 };
