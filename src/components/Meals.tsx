@@ -29,7 +29,7 @@ const Meals = () => {
 
 const Container = styled.div`
   // 한줄에 4개씩 Grid로 보여주는 기능 or 2개씩 Grid로 보여주는 기능을 포함해야함.
-  margin-top: 60px;
+  margin-top: 20px;
 `;
 
 const MealsContainer = styled.div<{ gridNum: number }>`
