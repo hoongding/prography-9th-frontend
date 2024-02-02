@@ -29,6 +29,10 @@ const ChipButton = styled.button<{ isSelected: boolean }>`
   border-radius: 8px;
   padding: ${({ isSelected }) => (isSelected ? '8px 12px' : '8px 12px')};
   background-color: ${({ isSelected, theme }) => isSelected && theme.COLORS.red50};
+  &:hover {
+    border: 1.5px solid ${({ theme }) => theme.COLORS.prographyRed};
+    background-color: ${({ theme }) => theme.COLORS.red50};
+  }
 `;
 
 export default ChipMain;
