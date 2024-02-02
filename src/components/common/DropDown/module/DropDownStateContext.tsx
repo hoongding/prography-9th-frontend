@@ -3,7 +3,7 @@ import React, { createContext } from 'react';
 export interface IDropDownContext {
   children?: React.ReactNode;
   selectedItem: { value: number; label: string };
-  setSelectedItem: (value: number, label: string) => void;
+  setSelectedItem: (value: number) => void;
   open: boolean;
   handleOpen: (open: boolean) => void;
 }

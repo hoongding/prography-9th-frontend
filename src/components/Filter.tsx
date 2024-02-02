@@ -6,7 +6,7 @@ import { DropDown } from './common/DropDown';
 interface IFilter {
   mealsCount: number;
   viewCount: number;
-  handleGridNum: (num: number) => void;
+  handleGridNum: (value: number) => void;
   gridNum: number;
 }
 

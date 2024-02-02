@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 
 const Main = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [gridNum, setGridNum] = useState(4);
+  const [gridNum, setGridNum] = useState({ value: 4, label: '4개씩 보기' });
 
   const { filterState, isFilterChanged } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
@@ -24,16 +24,21 @@ const Main = () => {
     );
   };
 
-  const handleGridNum = (num: number) => {
-    setGridNum(num);
+  const handleGridNum = (value: number) => {
+    setGridNum({ value: value, label: `${value}개씩 보기` });
   };
 
   return (
     <>
       <Header />
       <Categories selectedCategories={selectedCategories} handleSelectedCategory={handleSelectedCategory} />
-      <Filter mealsCount={filterState.meals.length} viewCount={20} handleGridNum={handleGridNum} gridNum={gridNum} />
-      <Meals gridNum={gridNum} />
+      <Filter
+        mealsCount={filterState.meals.length}
+        viewCount={20}
+        handleGridNum={handleGridNum}
+        gridNum={gridNum.value}
+      />
+      <Meals gridNum={gridNum.value} />
     </>
   );
 };
