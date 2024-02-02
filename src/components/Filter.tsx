@@ -1,15 +1,26 @@
 import { FONT_TOKEN } from '@styles/fonts';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { DropDown } from './common/DropDown';
 
 interface IFilter {
   mealsCount: number;
   viewCount: number;
-  handleGridNum: (num: 1 | 2 | 4) => void;
+  handleGridNum: (num: number) => void;
+  gridNum: number;
 }
 
-const Filter = ({ mealsCount, viewCount, handleGridNum }: IFilter) => {
-  return <FilterContainer>{`${viewCount} / ${mealsCount} 개 조회`}</FilterContainer>;
+const Filter = ({ mealsCount, viewCount, handleGridNum, gridNum }: IFilter) => {
+  return (
+    <FilterContainer>
+      {`${viewCount} / ${mealsCount} 개 조회`}
+      <div>
+        <DropDown selectedItem={gridNum} setSelectedItem={handleGridNum}>
+          <DropDown.Button />
+        </DropDown>
+      </div>
+    </FilterContainer>
+  );
 };
 
 const FilterContainer = styled.div`

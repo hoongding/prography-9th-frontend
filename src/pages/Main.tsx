@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 
 const Main = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [gridNum, setGridNum] = useState<1 | 2 | 4>(4);
+  const [gridNum, setGridNum] = useState(4);
 
   const { filterState, isFilterChanged } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
@@ -24,7 +24,7 @@ const Main = () => {
     );
   };
 
-  const handleGridNum = (num: 1 | 2 | 4) => {
+  const handleGridNum = (num: number) => {
     setGridNum(num);
   };
 
@@ -32,7 +32,7 @@ const Main = () => {
     <>
       <Header />
       <Categories selectedCategories={selectedCategories} handleSelectedCategory={handleSelectedCategory} />
-      <Filter mealsCount={filterState.meals.length} viewCount={20} handleGridNum={handleGridNum} />
+      <Filter mealsCount={filterState.meals.length} viewCount={20} handleGridNum={handleGridNum} gridNum={gridNum} />
       <Meals gridNum={gridNum} />
     </>
   );

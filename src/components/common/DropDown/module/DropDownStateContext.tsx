@@ -5,7 +5,7 @@ export interface IDropDownContext {
   selectedItem: number;
   setSelectedItem: (value: number) => void;
   open: boolean;
-  handleOpen: () => void;
+  handleOpen: (open: boolean) => void;
 }
 
 export const DropDownContext = createContext<IDropDownContext | null>(null);

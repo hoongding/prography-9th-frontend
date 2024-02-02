@@ -11,7 +11,7 @@ interface IDropDown {
 const DropDownMain = ({ children, selectedItem, setSelectedItem }: IDropDown) => {
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => setOpen(prev => !prev);
+  const handleOpen = (open: boolean) => setOpen(open);
 
   return (
     <DropDownContext.Provider value={{ selectedItem, setSelectedItem, open, handleOpen }}>
