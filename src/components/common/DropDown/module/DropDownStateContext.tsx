@@ -2,7 +2,10 @@ import React, { createContext } from 'react';
 
 export interface IDropDownContext {
   children?: React.ReactNode;
-  onClick: () => void;
+  selectedItem: number;
+  setSelectedItem: (value: number) => void;
+  open: boolean;
+  handleOpen: () => void;
 }
 
 export const DropDownContext = createContext<IDropDownContext | null>(null);

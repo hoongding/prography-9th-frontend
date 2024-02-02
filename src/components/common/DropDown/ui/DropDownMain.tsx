@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DropDownContext } from '../module/DropDownStateContext';
+import styled from 'styled-components';
 
 interface IDropDown {
   children: React.ReactNode;
-  onClick: () => void;
-  selected: boolean;
-  setSelected: (value: boolean) => void;
+  selectedItem: number;
+  setSelectedItem: (value: number) => void;
 }
 
-const DropDownMain = ({ children, onClick, selected, setSelected }: IDropDown) => {
-  return <DropDownContext.Provider value={{ onClick }}>{children}</DropDownContext.Provider>;
+const DropDownMain = ({ children, selectedItem, setSelectedItem }: IDropDown) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(prev => !prev);
+
+  return (
+    <DropDownContext.Provider value={{ selectedItem, setSelectedItem, open, handleOpen }}>
+      <DropDownContainer>{children}</DropDownContainer>
+    </DropDownContext.Provider>
+  );
 };
+
+const DropDownContainer = styled.div`
+  position: relative;
+  width: 100%;
+`;
 
 export default DropDownMain;
