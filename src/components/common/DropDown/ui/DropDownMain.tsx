@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 interface IDropDown {
   children: React.ReactNode;
-  selectedItem: number;
+  selectedItem: { value: number; label: string };
   setSelectedItem: (value: number) => void;
 }
 

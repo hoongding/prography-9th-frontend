@@ -15,8 +15,13 @@ const Filter = ({ mealsCount, viewCount, handleGridNum, gridNum }: IFilter) => {
     <FilterContainer>
       {`${viewCount} / ${mealsCount} 개 조회`}
       <div>
-        <DropDown selectedItem={gridNum} setSelectedItem={handleGridNum}>
+        <DropDown selectedItem={{ value: gridNum, label: `${gridNum}개씩 보기` }} setSelectedItem={handleGridNum}>
           <DropDown.Button />
+          <DropDown.Menus>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+          </DropDown.Menus>
         </DropDown>
       </div>
     </FilterContainer>
@@ -27,6 +32,7 @@ const FilterContainer = styled.div`
   ${FONT_TOKEN['Body1-16Bd']}
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 20px 0px;
 `;
 
