@@ -5,7 +5,11 @@ import { useFilterStateContext } from '@context/filterContext';
 import Image from './atom/Image';
 import { FONT_TOKEN } from '@styles/fonts';
 
-const Meals = () => {
+interface IMeals {
+  gridNum: number;
+}
+
+const Meals = ({ gridNum }: IMeals) => {
   const { filterState } = useFilterStateContext();
   const { meals } = filterState;
 
@@ -14,7 +18,7 @@ const Meals = () => {
       {meals.length === 0 ? (
         <div>카테고리로 음식을 조회해보세요!</div>
       ) : (
-        <MealsContainer gridNum={4}>
+        <MealsContainer gridNum={gridNum}>
           {meals.map(meal => (
             <MealItem key={meal.idMeal}>
               <Image src={meal.strMealThumb} alt={meal.strMeal} isRounded={true} />

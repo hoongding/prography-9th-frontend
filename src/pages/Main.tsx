@@ -9,6 +9,8 @@ import React, { useState } from 'react';
 
 const Main = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [gridNum, setGridNum] = useState<1 | 2 | 4>(4);
+
   const { filterState, isFilterChanged } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
 
@@ -22,12 +24,16 @@ const Main = () => {
     );
   };
 
+  const handleGridNum = (num: 1 | 2 | 4) => {
+    setGridNum(num);
+  };
+
   return (
     <>
       <Header />
       <Categories selectedCategories={selectedCategories} handleSelectedCategory={handleSelectedCategory} />
-      <Filter mealsCount={filterState.meals.length} viewCount={20} />
-      <Meals />
+      <Filter mealsCount={filterState.meals.length} viewCount={20} handleGridNum={handleGridNum} />
+      <Meals gridNum={gridNum} />
     </>
   );
 };
