@@ -40,6 +40,12 @@ const MealsContainer = styled.div<{ gridNum: number }>`
   display: grid;
   grid-template-columns: ${({ gridNum }) => `repeat(${gridNum}, 1fr)`};
   gap: 9px;
+
+  // 모바일일땐 grid가 아닌 flex로 보여주기
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const MealItem = styled.div`

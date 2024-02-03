@@ -30,7 +30,8 @@ const App = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 90%;
+  max-width: 1200px;
   justify-content: center;
   padding: 0px 20px;
 `;

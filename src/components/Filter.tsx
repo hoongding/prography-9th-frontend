@@ -42,7 +42,7 @@ const Filter = ({ mealsCount, viewCount, handleGridNum, gridNum }: IFilter) => {
           </DropDown>
         </div>
 
-        <div>
+        <GridDropDownContainer>
           <DropDown selectedItem={{ value: gridNum, label: `${gridNum}개씩 보기` }} setSelectedItem={handleGridNum}>
             <DropDown.Button />
             <DropDown.Menus>
@@ -50,7 +50,7 @@ const Filter = ({ mealsCount, viewCount, handleGridNum, gridNum }: IFilter) => {
               <DropDown.MenuItem value={4} label="4개씩 보기" />
             </DropDown.Menus>
           </DropDown>
-        </div>
+        </GridDropDownContainer>
       </FilterDropDownContainer>
     </FilterContainer>
   );
@@ -69,6 +69,13 @@ const FilterDropDownContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
+`;
+
+const GridDropDownContainer = styled.div`
+  // 모바일 일땐 display none하기
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default Filter;
