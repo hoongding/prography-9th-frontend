@@ -6,10 +6,9 @@ import { useDropDownState } from '../module/DropDownStateContext';
 interface IDropDownMenuItem {
   value: number;
   label: string;
-  divider?: boolean;
 }
 
-const DropDownMenuItem = ({ value, label, divider }: IDropDownMenuItem) => {
+const DropDownMenuItem = ({ value, label }: IDropDownMenuItem) => {
   const { setSelectedItem, handleOpen, selectedItem } = useDropDownState();
 
   const handleClick = () => {
