@@ -4,7 +4,7 @@ import Categories from '@components/Categories';
 import Filter from '@components/Filter';
 import Header from '@components/Header';
 import Meals from '@components/Meals';
-import { FILTER_ACTION_TYPES, useFilterDispatchContext, useFilterStateContext } from '@context/filterContext';
+import { FILTER, FILTER_ACTION_TYPES, useFilterDispatchContext, useFilterStateContext } from '@context/filterContext';
 import React, { useState } from 'react';
 
 const Main = () => {
@@ -16,6 +16,9 @@ const Main = () => {
 
   useMeals(selectedCategories, (data: IMeal[]) => {
     filterDispatch({ type: FILTER_ACTION_TYPES.ADD_MEALS, payload: data });
+    if (filterState.filterOption === FILTER.NEW) filterDispatch({ type: FILTER_ACTION_TYPES.SET_FILTER_NEW });
+    if (filterState.filterOption === FILTER.ASC) filterDispatch({ type: FILTER_ACTION_TYPES.SET_FILTER_ASC });
+    if (filterState.filterOption === FILTER.DESC) filterDispatch({ type: FILTER_ACTION_TYPES.SET_FILTER_DESC });
   });
 
   const handleSelectedCategory = (strCategory: string) => {
