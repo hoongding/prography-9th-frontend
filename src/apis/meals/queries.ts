@@ -32,7 +32,15 @@ export const useMeals = (category: string[], onSuccess: (data: IMeal[]) => void)
 
   useEffect(() => {
     if (allQueriesSuccess) {
-      const data = queryResults.map(query => query.data.meals).flat();
+      const data = queryResults
+        .map(query => query.data.meals)
+        .flat()
+        .reduce((acc, cur) => {
+          if (acc.map((meal: IMeal) => meal.idMeal).includes(cur.idMeal)) {
+            return acc;
+          }
+          return [...acc, cur];
+        }, [] as IMeal[]);
 
       onSuccess(data);
     }

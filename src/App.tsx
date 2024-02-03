@@ -34,6 +34,7 @@ const Container = styled.div`
   max-width: 1200px;
   justify-content: center;
   padding: 0px 20px;
+  padding-bottom: 40px;
 `;
 
 export default App;

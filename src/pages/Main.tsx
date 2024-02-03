@@ -1,12 +1,13 @@
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import { useMeals } from '@apis/meals/queries';
-import { IMeal, IMeals } from '@apis/meals/types';
+import { IMeal } from '@apis/meals/types';
 import Categories from '@components/Categories';
 import Filter from '@components/Filter';
 import Header from '@components/Header';
 import Meals from '@components/Meals';
 import { FILTER, FILTER_ACTION_TYPES, useFilterDispatchContext, useFilterStateContext } from '@context/filterContext';
-import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 const Main = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,6 +19,8 @@ const Main = () => {
 
   const { filterState } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
+
+  const [seenMeals, setSeenMeals] = useState<IMeal[]>(filterState.meals.slice(0, 20));
 
   useEffect(() => {
     const filterOption =
@@ -35,6 +38,14 @@ const Main = () => {
     if (filterState.filterOption === FILTER.DESC) filterDispatch({ type: FILTER_ACTION_TYPES.SET_FILTER_DESC });
   });
 
+  useEffect(() => {
+    if (selectedCategories.length === 0) {
+      setSeenMeals([]);
+      return;
+    }
+    setSeenMeals(filterState.meals.slice(0, 20));
+  }, [selectedCategories, filterState.meals, filterState.filterOption]);
+
   const handleSelectedCategory = (strCategory: string) => {
     setSelectedCategories(prev =>
       !prev.includes(strCategory) ? [...prev, strCategory] : prev.filter(categoryName => categoryName !== strCategory)
@@ -51,11 +62,11 @@ const Main = () => {
       <Categories selectedCategories={selectedCategories} handleSelectedCategory={handleSelectedCategory} />
       <Filter
         mealsCount={filterState.meals.length}
-        viewCount={20}
+        viewCount={seenMeals.length}
         handleGridNum={handleGridNum}
         gridNum={gridNum.value}
       />
-      <Meals gridNum={gridNum.value} />
+      <Meals gridNum={gridNum.value} seenMeals={seenMeals} setSeenMeals={setSeenMeals} />
     </>
   );
 };
