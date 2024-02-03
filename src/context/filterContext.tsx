@@ -1,5 +1,6 @@
 import { IMeal } from '@apis/meals/types';
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 interface IFilterState {
   meals: IMeal[];
@@ -94,6 +95,14 @@ const filterReducer = (
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [filterState, filterDispatch] = useReducer(filterReducer, { meals: [], filterOption: FILTER.NEW });
   const isFilterChanged = JSON.stringify(filterState) !== JSON.stringify(initialState);
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get('filter') === 'NEW') filterDispatch({ type: FILTER_ACTION_TYPES.SET_FILTER_NEW });
+    if (searchParams.get('filter') === 'ASC') filterDispatch({ type: FILTER_ACTION_TYPES.SET_FILTER_ASC });
+    if (searchParams.get('filter') === 'DESC') filterDispatch({ type: FILTER_ACTION_TYPES.SET_FILTER_DESC });
+  }, []);
 
   return (
     <FilterStateContext.Provider value={{ filterState, isFilterChanged }}>

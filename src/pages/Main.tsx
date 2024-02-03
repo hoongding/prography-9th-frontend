@@ -10,7 +10,10 @@ import { useSearchParams } from 'react-router-dom';
 
 const Main = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    searchParams.get('categories')?.split(',') || ([] as string[])
+  );
   const [gridNum, setGridNum] = useState({ value: 4, label: '4개씩 보기' });
 
   const { filterState } = useFilterStateContext();
