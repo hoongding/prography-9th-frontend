@@ -5,14 +5,25 @@ import Filter from '@components/Filter';
 import Header from '@components/Header';
 import Meals from '@components/Meals';
 import { FILTER, FILTER_ACTION_TYPES, useFilterDispatchContext, useFilterStateContext } from '@context/filterContext';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 const Main = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [gridNum, setGridNum] = useState({ value: 4, label: '4개씩 보기' });
 
-  const { filterState, isFilterChanged } = useFilterStateContext();
+  const { filterState } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
+
+  useEffect(() => {
+    const filterOption =
+      filterState.filterOption === FILTER.NEW ? 'NEW' : filterState.filterOption === FILTER.ASC ? 'ASC' : 'DESC';
+
+    selectedCategories.length !== 0 && searchParams.set('categories', selectedCategories.join(','));
+    searchParams.set('filter', filterOption);
+    setSearchParams(searchParams);
+  }, [filterState.filterOption, selectedCategories]);
 
   useMeals(selectedCategories, (data: IMeal[]) => {
     filterDispatch({ type: FILTER_ACTION_TYPES.ADD_MEALS, payload: data });
